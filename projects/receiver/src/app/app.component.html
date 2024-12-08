@@ -1,0 +1,7 @@
+<h1>Turing Display</h1>
+
+<p>Received Cypher: {{ cryptedMessage() }}</p>
+<p>Received Hexa Cypher: {{ cryptedHexaMessage() }}</p>
+<p>Received Decripted: {{ decryptedMessage() | async }}</p>
+
+<button (click)="sendKey()">Create and send a new cripto key</button>

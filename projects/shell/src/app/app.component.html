@@ -1,0 +1,20 @@
+<h1>Exemplo de aplicação com criptografar assimétrica</h1>
+<p>Neste exemplo os dois microfrontends estão totalmente desacoplados, comunicando-se apenas através do BroadcastChannel. A aplicação que recebe as mensagens gera a chave pública e privada, enviando para o fornecedor a chave pública e armazenando a chave privada para descriptografas as mensagens recebidas.</p>
+<section>
+  <article>
+    <h2>Microfrontend 1 - Sender</h2>
+    <p>Este microfrontend é uma aplicação Angular, gera a chave assimétrica e descriptografa as mensagens recebidas</p>
+  </article>
+  <article>
+    <h2>Microfrontend 2 - Receiver</h2>
+    <p>Este microfrontend é uma aplicação Angular, recebe a chave pública e envia mensagens criptografadas</p>
+  </article>
+</section>
+<router-outlet></router-outlet>
+<!-- add a divider -->
+<hr>
+<sender-micro-frontend></sender-micro-frontend>
+<hr>
+<receiver-micro-frontend></receiver-micro-frontend>
+<hr>
+<man-in-the-middle-micro-frontend></man-in-the-middle-micro-frontend>

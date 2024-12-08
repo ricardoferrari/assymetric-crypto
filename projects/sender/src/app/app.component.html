@@ -1,0 +1,14 @@
+<h1>Sender</h1>
+<p>Received public key: {{ rawKey() }}</p>
+<p>Received Raw Public Hexa key: {{ cryptedHexaKey() }}</p>
+<form onsubmit="return false;">
+  <label for="message">Message: </label>
+  <input
+    name="message"
+    type="text"
+    #message
+    autocomplete="off"
+  >
+  <button (click)="sendMessage(message.value)">Send</button>
+</form>
+<br>
