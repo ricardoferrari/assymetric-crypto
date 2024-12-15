@@ -1,6 +1,5 @@
 <h1>Sender</h1>
-<p>Received public key: {{ rawKey() }}</p>
-<p>Received Raw Public Hexa key: {{ cryptedHexaKey() }}</p>
+<p>Public key: {{ rawKey() ? 'received' : 'pending' }}</p>
 <form onsubmit="return false;">
   <label for="message">Message: </label>
   <input

@@ -47,4 +47,11 @@ export class BroadcastChannelService implements OnDestroy {
     );
   }
 
+  anyMessagesObservable(): Observable<any> {
+    return this.message.pipe(
+      map(value => value?.content),
+      filter(value => value != undefined),
+    );
+  }
+
 }

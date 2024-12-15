@@ -27,17 +27,6 @@ export class AppComponent {
   public key: CryptoKeyPair | undefined;
 
   rawKey: WritableSignal<string> = signal('');
-  cryptedHexaKey: Signal<string> = computed(() => {
-    if (this.rawKey().length > 0) {
-        let binary = '';
-        for (let i = 0; i < this.rawKey().length; i++) {
-          binary += this.rawKey().charCodeAt(i).toString(16);
-        }
-        return binary;
-    } else {
-      return '';
-    }
-  });
 
   constructor(private readonly broadcastChannelService: BroadcastChannelService) {
     // NOTE: Subscribes for keys on the 'public-key' channel

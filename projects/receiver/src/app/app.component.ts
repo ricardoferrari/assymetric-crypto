@@ -25,23 +25,6 @@ export class AppComponent implements OnDestroy, AfterViewChecked {
   private readonly subscription: Subscription = new Subscription();
 
   receivedMessage: WritableSignal<{cyphertext: ArrayBuffer, iv:Uint8Array}> = signal({cyphertext: new ArrayBuffer(0), iv: new Uint8Array(0)});
-  cryptedMessage: Signal<string> = computed(() => {
-    const dec = new TextDecoder();
-    return dec.decode(this.receivedMessage().cyphertext);
-  });
-  cryptedHexaMessage: Signal<string> = computed(() => {
-    if (this.receivedMessage().cyphertext.byteLength > 0) {
-        const view = new DataView(this.receivedMessage().cyphertext);
-        let binary = '';
-        for (let i = 0; i < view.byteLength; i++) {
-          binary += view.getUint8(i).toString(16);
-        }
-        return binary;
-    } else {
-      return '';
-    }
-  });
-
 
   decryptedMessage: Signal<Promise<string>> = computed( async () => {
     if (this.currentKeyPair() && this.receivedMessage().cyphertext.byteLength > 0) {
